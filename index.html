@@ -7,21 +7,33 @@
   <style>
     body {
       margin: 0;
-      background: #fff;
+      background: #ffffff;
       font-family: 'Gulim', Gulim, 'Dotum', Dotum, Arial, sans-serif;
       color: black;
       text-align: center;
       padding-top: 100px;
-      transition: background 0.3s ease;
     }
+
+    /* 입구 스타일 */
+    #entrance {
+      display: block;
+    }
+
+    #product-page {
+      display: none;
+      padding-top: 60px;
+    }
+
     h1 {
       font-size: 40px;
       margin-bottom: 10px;
     }
+
     p {
       font-size: 18px;
       margin-bottom: 50px;
     }
+
     a {
       color: #0066ff;
       font-style: italic;
@@ -30,24 +42,74 @@
       text-decoration: none;
       cursor: pointer;
     }
+
     a:hover {
       color: #003399;
       text-decoration: underline;
     }
+
+    /* 물건 목록 스타일 */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #product-page h2 {
+      font-style: italic;
+      font-size: 36px;
+      margin-bottom: 40px;
+    }
+
+    .item {
+      font-size: 20px;
+      margin: 15px 0;
+      font-style: italic;
+    }
+
+    .discount {
+      color: red;
+      font-weight: bold;
+    }
+
+    .strikethrough {
+      text-decoration: line-through;
+      font-size: 16px;
+      color: #555;
+      margin-top: 4px;
+      display: block;
+      margin-left: 4px;
+    }
   </style>
 </head>
 <body>
-  <h1>&lt;우주 쇼핑몰&gt;</h1>
-  <p>※외계에서 온 멋진 물건※~!!</p>
-  <a href="#" id="view-item">>>나는 물건을 본다</a>
+  <!-- 입구 화면 -->
+  <div id="entrance">
+    <h1>&lt;우주 쇼핑몰&gt;</h1>
+    <p>※외계에서 온 멋진 물건※~!!</p>
+    <a href="#" onclick="showProducts()">>>나는 물건을 본다</a>
+  </div>
+
+  <!-- 물건 목록 화면 -->
+  <div id="product-page">
+    <div class="container">
+      <h2>물건</h2>
+
+      <div class="item">혈욕조 - ₩29,999,999</div>
+      <div class="item">신비한 양초 키트 - ₩19,999,999</div>
+      <div class="item">백설 공주의 사과 - ₩11,999,999</div>
+      <div class="item">우리가 도움! - ₩66,666,666</div>
+      <div class="item">
+        ※할인!※ 흡혈 식기 - <span class="discount">₩7,999,999</span>
+        <span class="strikethrough">₩14,999,999</span>
+      </div>
+    </div>
+  </div>
 
   <script>
-    document.getElementById('view-item').addEventListener('click', function(event) {
-      event.preventDefault();
-      // 페이지 내용 모두 삭제
-      document.body.innerHTML = '';
-      // 배경색은 이미 흰색이라 따로 안 바꿈
-    });
+    function showProducts() {
+      document.getElementById('entrance').style.display = 'none';
+      document.getElementById('product-page').style.display = 'block';
+    }
   </script>
 </body>
 </html>
