@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우주 쇼핑몰</title>
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      font-family: 'Gulim', Gulim, 'Dotum', Dotum, Arial, sans-serif;
+      color: black;
+      text-align: center;
+      padding-top: 100px;
+      transition: background 0.3s ease;
+    }
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+    a {
+      color: #0066ff;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      color: #003399;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>&lt;우주 쇼핑몰&gt;</h1>
+  <p>※외계에서 온 멋진 물건※~!!</p>
+  <a href="#" id="view-item">>>나는 물건을 본다</a>
+
+  <script>
+    document.getElementById('view-item').addEventListener('click', function(event) {
+      event.preventDefault();
+      // 페이지 내용 모두 삭제
+      document.body.innerHTML = '';
+      // 배경색은 이미 흰색이라 따로 안 바꿈
+    });
+  </script>
+</body>
+</html>
