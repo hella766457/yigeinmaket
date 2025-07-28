@@ -11,17 +11,16 @@
       font-family: 'Gulim', Gulim, 'Dotum', Dotum, Arial, sans-serif;
       color: black;
       text-align: center;
-      padding-top: 100px;
     }
 
-    /* 입구 스타일 */
     #entrance {
       display: block;
+      padding-top: 100px;
     }
 
     #product-page {
       display: none;
-      padding-top: 60px;
+      padding: 60px 20px;
     }
 
     h1 {
@@ -48,7 +47,6 @@
       text-decoration: underline;
     }
 
-    /* 물건 목록 스타일 */
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -79,6 +77,73 @@
       display: block;
       margin-left: 4px;
     }
+
+    /* 계정 동그라미 */
+    .account-circle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    /* 모달 */
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #modal {
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+
+    #modal button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      background: #000080;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #modal button:hover {
+      background: #ff0000;
+    }
+
+    .back-btn {
+      margin-top: 50px;
+      font-size: 18px;
+      background: #000080;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: #ff0000;
+    }
   </style>
 </head>
 <body>
@@ -89,8 +154,11 @@
     <a href="#" onclick="showProducts()">>>나는 물건을 본다</a>
   </div>
 
-  <!-- 물건 목록 화면 -->
+  <!-- 물건 화면 -->
   <div id="product-page">
+    <!-- 계정 동그라미 -->
+    <div class="account-circle" onclick="openModal()">?</div>
+
     <div class="container">
       <h2>물건</h2>
 
@@ -102,6 +170,17 @@
         ※할인!※ 흡혈 식기 - <span class="discount">₩7,999,999</span>
         <span class="strikethrough">₩14,999,999</span>
       </div>
+
+      <button class="back-btn" onclick="goToEntrance()">입구로 돌아가기</button>
+    </div>
+  </div>
+
+  <!-- 모달 -->
+  <div id="modal-overlay">
+    <div id="modal">
+      <p><strong>아이디:</strong> yongi1111</p>
+      <p><strong>패스워드:</strong> Dydajfigodks!111</p>
+      <button onclick="closeModal()">닫기</button>
     </div>
   </div>
 
@@ -109,6 +188,19 @@
     function showProducts() {
       document.getElementById('entrance').style.display = 'none';
       document.getElementById('product-page').style.display = 'block';
+    }
+
+    function goToEntrance() {
+      document.getElementById('product-page').style.display = 'none';
+      document.getElementById('entrance').style.display = 'block';
+    }
+
+    function openModal() {
+      document.getElementById('modal-overlay').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').style.display = 'none';
     }
   </script>
 </body>
